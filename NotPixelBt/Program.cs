@@ -6,9 +6,12 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-       Bot bot = new Bot();
-       bot.StartBot();
-       
-       //bot.RestartBot();
+        Bot bot = new Bot();
+        bot.StartAplicationLogIn();
+
+        Console.WriteLine("Откройте приложение, укажите пиксель и нажмимте на enter");
+        Console.ReadLine();
+
+        bot.RunClicker();
     }
 }
