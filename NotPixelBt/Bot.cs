@@ -224,13 +224,16 @@ namespace NotPixelBt
 
             switch (mode)
             {
-                case "1": 
+                case "1":
+                    Logger.LogInfo("Выбран режим новой сессии");
                     SessionMode = SessionMode.NewSession; break;
                     
-                case "2": 
+                case "2":
+                    Logger.LogInfo("Выбран режим загрузки сессии");
                     SessionMode = SessionMode.LoadSession; break;
                 
-                default : 
+                default :
+                    Logger.LogInfo("Выбран режим анонимной сессии");
                     SessionMode = SessionMode.AnonymousSession; break;
             }
         }

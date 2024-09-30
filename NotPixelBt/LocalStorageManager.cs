@@ -25,6 +25,7 @@ namespace NotPixelBt
             string storageJson = GetSessionStorageJson();
             string storagePath = Path.Combine(_sessionsStoragePath, storageName+".json");
             File.WriteAllText(storagePath, storageJson);
+            Logger.LogInfo("Сессия сохранена");
         }
         public void SetCurrentLocalStorage(int index)
         {
@@ -36,9 +37,11 @@ namespace NotPixelBt
                 localDictionary.TryGetValue(key, out string value);
                 Driver.ExecuteScript($"localStorage.setItem('{key}','{value}');");
             }
+            Logger.LogInfo("Локальное хранилище изменено");
         }
         private string GetSessionStorageJson()
         {
+            Logger.LogInfo("Получено локальное хранилище");
             return (string)Driver.ExecuteScript("return JSON.stringify(window.localStorage);"); ;
         }
     }
